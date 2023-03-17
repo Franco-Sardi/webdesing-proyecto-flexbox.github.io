@@ -1,0 +1,157 @@
+ /*Importante, lo primero que hay que tener en cuenta es que hay que buscar la etiqueta padre para aplicarle atributos que luego sus hijos heredarán*/
+ /*Por defecto un display flex coloca los elemtos uno al lado del otro, es decir en fila. Para cambiar esto se coloca flex-direction: column*/
+ /*HEADER*/
+ .headerPrincipal .container {
+
+     /*Objetivos principales(3), colocar el logo a la izq y el menú a la derecha, crear un espacio entre ellos y alinearlos verticalmente*/
+     display: flex;
+     /*Le aplicamos la propiedad flex a todo el contenido*/
+     align-items: center;
+     /*Alineamos los items del header en el centro*/
+     justify-content: space-between;
+     /*Lo que provoca este atributo es generar el espacio entre el logo y el menú*/
+ }
+
+ .headerPrincipal-nav {
+
+     display: flex;
+     /*Lo que hacemos con esta propiedad es que nuestro menú se coloque uno al lado del otro*/
+ }
+
+ /*FOOTER*/
+ .rodapePrincipal-patrocinadores .container {
+     display: flex;
+     /*Lo que hicimos acá es separar los patrocinadores del enviar contacto y le dimos un espacio entre ellos*/
+     justify-content: space-between;
+ }
+
+ .rodapePrincipal-patrocinadores-list {
+     display: flex;
+     /*Lo que hicimos acá fue alinear cada imagen de patrocinadores una al lado del otro y las alineamos al centro(misma altura)*/
+     align-items: center;
+     justify-content: space-around;
+     /*Le damos espacio con los elemntos de afuera*/
+     width: 70%;
+     /* los patrocinadores ocupan 3/4 del footer, entonces le damos ese ancho, luego para generar un espacio entre el margen y quede más centrado, le colocamos un margen del 5% y el resto se lo otorgamos al formulario ; */
+     margin: 5%;
+ }
+
+ .rodapePrincipal-contatoForm {
+     width: 25%;
+     /*Le delimitamos el ancho que puede ocupar el formulario*/
+ }
+
+ .rodapePrincipal-contatoForm-fieldset {
+     display: flex;
+     /*El botón de enviar se coloca al lado del formulario*/
+ }
+
+ /*Mapa de cursos*/
+ .rodapePrincipal-navMap-list {
+
+     display: flex;
+     flex-direction: column;
+     /*Lo que ocurre aquí es que colocamos de forma de columna los títulos con sus subdivisiones debajo de manera de una columna (un título debajo del otro)*/
+     height: 250px;
+     /*Le delimitamos una altura para que podamos colocar uno al lado del otro, lo que sucede que hay que atribuirle wrap para que sepa que tiene que cambiar de columna*/
+     flex-wrap: wrap;
+     /*Cada 250px comienza una columna nueva hacia la derecha*/
+ }
+
+ .contenidoPrincipal-cursos {
+     /*Hay elementos del contenido de los cursos que tienen position:absolute. Esto quiere decir que si está definido este atributo luego del flex, se anulará este comportamiento yel display no podrá reconocer el tamaño adecuado para esto y se superponen los elementos*/
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .contenidoPrincipal-cursos-link {
+     /*El problema del position absolute se soluciona colocando a cada ítem display flex y le otorgamos un ancho para que ocupen del 100%*/
+     display: flex;
+     width: 23%;
+     /*Tenemos que pensar que el máximo de espacio a ocupar es 100%, entonces le otorgamos un ancho a los elementos para que puedan amoldarse de acuerdo a nuestros gustos */
+ }
+
+ /*VIDEO*/
+ .videoSobre .container {
+     display: flex;
+     justify-content: space-between;
+     
+ }
+
+ .videoSobre-sobre{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+ }
+.videoSobre-video{
+    flex-grow:0.6;
+    flex-shrink: 2;
+}
+
+.videoSobre-sobre-list{
+    justify-content: center;
+    flex-grow: 2;
+}
+
+ /*RESPONSIVE*/
+
+
+ @media (max-width:768px) {
+
+     /*Header*/
+     .headerPrincipal .container {
+         flex-direction: column;
+         align-items: initial;
+         text-align: center;
+     }
+
+     .headerPrincipal-nav {
+         flex-direction: column;
+
+     }
+
+     /*CURSOS*/
+
+     .contenidoPrincipal-cursos {
+         flex-direction: column;
+     }
+
+     .contenidoPrincipal-cursos-link {
+         width: 100%;
+     }
+
+     /*MAPA Cursos*/
+
+     .rodapePrincipal-navMap-list {
+         height: auto;
+         flex-wrap: nowrap;
+     }
+
+     /*FOOTER*/
+
+     .rodapePrincipal-patrocinadores .container {
+         flex-direction: column;
+     }
+
+     .rodapePrincipal-patrocinadores-list {
+         align-items: center;
+         width: 100%;
+         margin: 0%;
+     }
+
+     .rodapePrincipal-contatoForm {
+         width: 100%;
+     }
+
+     .rodapePrincipal-contatoForm-fieldset {
+         justify-content: center;
+     }
+
+     .headerPrincipal-nav-link-app{
+        order: -1; /*Todos los ítems comienzan con el orden 0, al colocarle -1 se coloca en primer lugar el ítem*/
+     }
+     .videoSobre .container{
+        display: flex;
+        flex-direction: column;
+     }
+ }
